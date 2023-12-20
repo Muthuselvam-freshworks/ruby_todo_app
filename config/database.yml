@@ -1,0 +1,21 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  password: Qwertyui@143
+  host: localhost
+
+development:
+  <<: *default
+  database: post
+
+test:
+  <<: *default
+  database: post
+
+production:
+  <<: *default
+  database: post
+  username: root
+  password: Qwertyui@143

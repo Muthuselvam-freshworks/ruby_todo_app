@@ -1,0 +1,60 @@
+<%= render "header" %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <title>Todo App</title>
+</head>
+<body>
+
+<div class="container mt-4">
+  <h2>Todo App</h2>
+
+  <form id="todoForm" method="POST" action="/add">
+  <%= token_tag %>
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <input type="text" class="form-control" id="title" name="title" placeholder="Enter title">
+    </div>
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea class="form-control" id="description" rows="3" name="description" placeholder="Enter description"></textarea>
+    </div>
+    <input type="submit" class="btn btn-primary" id="addButton" value="Add"></input>
+  </form>
+
+  <ul class="list-group mt-3" id="todoList">
+   
+  </ul>
+</div>
+
+<hr>
+<% @todos.each do |post| %>
+   
+    
+    
+
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title"> <%= post.title %></h5>
+      <p class="card-text"><%= post.description %></p>
+      <a href="/delete/<%=post.id %>"  class= "btn btn-danger" >Delete</a>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+</body>
+</html>
+
+
+<%= render "footer" %>
